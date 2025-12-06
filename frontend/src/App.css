@@ -1,58 +1,60 @@
+/* src/styles.css */
+
+/* Global font */
 body {
-  background: linear-gradient(135deg, #1a1a1a, #220022, #440044);
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Neon glow text */
+.neon-text {
   color: #0ff;
+  text-shadow:
+     0 0 5px #0ff,
+     0 0 10px #0ff,
+     0 0 20px #0ff,
+     0 0 40px #0ff;
 }
 
-.login-page, .dashboard {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Neon buttons */
+.neon-button {
+  background-color: #ff00ff;
+  color: #fff;
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+  transition: 0.2s all;
 }
 
-.login-form {
+.neon-button:hover {
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+  transform: scale(1.05);
+}
+
+/* Task cards glow */
+.task-card {
+  background-color: #111;
+  border: 1px solid #0ff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+  transition: all 0.3s;
+}
+
+.task-card:hover {
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  transform: translateY(-2px);
+}
+
+/* Scrollbar for mission log */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
   background: #111;
-  padding: 40px;
-  border: 2px solid #0ff;
-  border-radius: 15px;
-  text-align: center;
 }
-
-.login-form input {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  background: #222;
-  border: 1px solid #0ff;
-  color: #0ff;
-}
-
-.login-form button {
+::-webkit-scrollbar-thumb {
   background: #0ff;
-  color: #111;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
+  border-radius: 4px;
 }
-
-.login-form span {
-  color: #f0f;
-  cursor: pointer;
-}
-
-.dashboard header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.task-list li {
-  margin: 10px 0;
-  background: #222;
-  padding: 10px;
-  border: 1px solid #0ff;
-  display: flex;
-  justify-content: space-between;
+::-webkit-scrollbar-thumb:hover {
+  background: #0aa;
 }
