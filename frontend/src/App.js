@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from "react";
-import Login from "./login";
-import Signup from "./signup";
-import Dashboard from "./dashboard";
-import './App.css';
-
+// src/App.js
+import React, { useState } from "react";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const [user, setUser] = useState(localStorage.getItem("user") || null);
-  const [showSignup, setShowSignup] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [signupMode, setSignupMode] = useState(false);
 
-  if (!user) {
-    return showSignup ? (
-      <Signup setUser={setUser} setShowSignup={setShowSignup} />
+  if (!loggedIn) {
+    return signupMode ? (
+      <Signup onSignup={() => setLoggedIn(true)} />
     ) : (
-      <Login setUser={setUser} setShowSignup={setShowSignup} />
+      <Login onLogin={() => setLoggedIn(true)} />
     );
   }
 
-  return <Dashboard user={user} setUser={setUser} />;
+  return <Dashboard />;
 }
 
 export default App;
