@@ -7,7 +7,6 @@ import './App.css';
 import './index.css';
 
 
-
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [signupMode, setSignupMode] = useState(false);
@@ -16,11 +15,12 @@ function App() {
     return signupMode ? (
       <Signup onSignup={() => setLoggedIn(true)} />
     ) : (
-      <Login onLogin={() => setLoggedIn(true)} />
+      <Login onLogin={() => setLoggedIn(true)} onSwitchSignup={() => setSignupMode(true)} />
     );
   }
 
-  return <Dashboard />;
+  return <Dashboard onLogout={() => setLoggedIn(false)} />;
 }
+
 
 export default App;

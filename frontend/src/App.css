@@ -1,9 +1,4 @@
-/* src/styles.css */
-
-/* Global font */
-body {
-  font-family: 'JetBrains Mono', monospace;
-}
+/* app.css */
 
 /* Neon glow text */
 .neon-text {
@@ -42,19 +37,4 @@ body {
 .task-card:hover {
   box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
   transform: translateY(-2px);
-}
-
-/* Scrollbar for mission log */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #111;
-}
-::-webkit-scrollbar-thumb {
-  background: #0ff;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #0aa;
 }

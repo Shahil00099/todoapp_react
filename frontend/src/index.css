@@ -1,47 +1,11 @@
-/* src/styles.css */
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* Global font */
 body {
+  margin: 0;
   font-family: 'JetBrains Mono', monospace;
-}
-
-/* Neon glow text */
-.neon-text {
-  color: #0ff;
-  text-shadow:
-     0 0 5px #0ff,
-     0 0 10px #0ff,
-     0 0 20px #0ff,
-     0 0 40px #0ff;
-}
-
-/* Neon buttons */
-.neon-button {
-  background-color: #ff00ff;
-  color: #fff;
-  border: 1px solid #ff00ff;
-  box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-  transition: 0.2s all;
-}
-
-.neon-button:hover {
-  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
-  transform: scale(1.05);
-}
-
-/* Task cards glow */
-.task-card {
-  background-color: #111;
-  border: 1px solid #0ff;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
-  transition: all 0.3s;
-}
-
-.task-card:hover {
-  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
-  transform: translateY(-2px);
+  background-color: #0a0a0a;
+  color: #e0e0e0;
 }
 
 /* Scrollbar for mission log */
