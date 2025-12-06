@@ -1,38 +1,58 @@
-.App {
+body {
+  background: linear-gradient(135deg, #1a1a1a, #220022, #440044);
+  font-family: monospace;
+  color: #0ff;
+}
+
+.login-page, .dashboard {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  background: #111;
+  padding: 40px;
+  border: 2px solid #0ff;
+  border-radius: 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login-form input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background: #222;
+  border: 1px solid #0ff;
+  color: #0ff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-form button {
+  background: #0ff;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-form span {
+  color: #f0f;
+  cursor: pointer;
+}
+
+.dashboard header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-list li {
+  margin: 10px 0;
+  background: #222;
+  padding: 10px;
+  border: 1px solid #0ff;
+  display: flex;
+  justify-content: space-between;
 }

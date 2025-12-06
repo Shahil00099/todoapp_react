@@ -1,48 +1,62 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 5000;
-
+app.use(express.json());
 app.use(cors());
-app.use(bodyParser.json());
 
-let tasks = []; // in-memory array
+// In-memory "database"
+let users = [];
+let tasks = [
+  {
+    id: 1,
+    title: "Decrypt Transmission Package 7.1",
+    details: "Initiate T-4 protocol...",
+    priority: "High",
+    status: "In Progress",
+    created: "2077-10-25",
+  },
+];
 
-// READ - Get all tasks
+// --- ROUTES ---
+
+// Get tasks
 app.get("/tasks", (req, res) => {
-  res.json({ tasks }); // return object
+  res.json(tasks);
 });
 
-// CREATE
+// Add task
 app.post("/tasks", (req, res) => {
-  const { task } = req.body;
-  if (task && task.trim() !== "") {
-    tasks.push(task);
-  }
-  res.json({ tasks });
+  const newTask = { id: tasks.length + 1, ...req.body };
+  tasks.push(newTask);
+  res.json(newTask);
 });
 
-// UPDATE
-app.put("/tasks/:index", (req, res) => {
-  const index = parseInt(req.params.index);
-  const { task } = req.body;
-  if (!isNaN(index) && tasks[index] !== undefined) {
-    tasks[index] = task;
-  }
-  res.json({ tasks });
+// Delete task
+app.delete("/tasks/:id", (req, res) => {
+  tasks = tasks.filter((t) => t.id !== parseInt(req.params.id));
+  res.json({ message: "Deleted" });
 });
 
-// DELETE
-app.delete("/tasks/:index", (req, res) => {
-  const index = parseInt(req.params.index);
-  if (!isNaN(index) && tasks[index] !== undefined) {
-    tasks.splice(index, 1);
-  }
-  res.json({ tasks });
+// Signup
+app.post("/signup", (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) return res.json({ message: "Fill all fields" });
+
+  if (users.find((u) => u.username === username))
+    return res.json({ message: "User exists" });
+
+  users.push({ username, password });
+  res.json({ message: "Signup successful" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+// Login
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  const user = users.find((u) => u.username === username && u.password === password);
+  if (user) res.json({ username: user.username });
+  else res.json({ message: "Invalid credentials" });
 });
+
+// Start server
+app.listen(5000, () => console.log("Server running on http://localhost:5000"));
